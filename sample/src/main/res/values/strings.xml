@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">simple-amazon-abtest-lib</string>
+
+    <string name="text_subscribe">Assine agora o conteúdo premium do blog Falando de Android! Com apenas R$ 4,99 por mês você tem acesso exclusivo ao código fonte de todos os posts do blog!</string>
+    <string name="button_subscribe">Assinar</string>
+    <string name="text_title">Conteúdo premium Falando de Android</string>
+    <string name="text_alert">Garantia de pelo menos 4 posts por mês.</string>
+</resources>
