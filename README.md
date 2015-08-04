@@ -148,7 +148,7 @@ public class SubscriptionActivity extends AppCompatActivity implements OnExperim
 
 Por último, a principal classe da Simple Amazon ABTest Library. A `AmazonABTestService` recebe a implementação da `AmazonABExperiment` no construtor e disponibiliza métodos para execução das mesmas ações da biblioteca original da Amazon.
 
-O projeto de exemplo está detalhado no post sobre a biblioteca no meu blog, assim como algumas dicas sobre testes A/B.
+O projeto de exemplo está detalhado no post sobre a biblioteca no meu [blog][blog], assim como algumas dicas sobre testes A/B.
 
 
 ## Limitações atuais
