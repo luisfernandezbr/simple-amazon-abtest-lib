@@ -2,31 +2,37 @@
 
 ## O que é a Simple Amazon ABTest Library?
 
-O objetivo da Simple Amazon ABTest Library é simplificar o uso do serviço [Amazon A/B Testing][amazon-ab-testing] e de sua biblioteca Android.
+A Simple Amazon ABTest Library é uma biblioteca Android que tem como objetivo simplificar o uso do serviço [Amazon A/B Testing][amazon-ab-testing] e de sua biblioteca para Android.
 A idéia surgiu quando tive algumas dificuldades ao tentar integrar um aplicativo Android com o serviço da Amazon, já que o [tutorial][amazon-ab-testing-doc] e o painel de configuração oficiais do serviço são bem extensos e um pouco complicados.
 
 ## Como integrar?
 Para integrar seu aplicativo com o Amazon A/B Testing você precisa ter uma conta Amazon e se cadastrar no Developer Console.
-Recomendo que você leia o [tutorial oficial][amazon-ab-testing-doc] primeiro para entender alguns conceitos do serviço.
-Após isso, você pode começar a configurar o seu projeto. Abaixo estão listadas as telas que contém dados que você precisará configurar no seu projeto.
+Recomendo que você leia o tutorial oficial primeiro para entender alguns conceitos do serviço.
+Após isso, você pode começar a configurar o seu projeto. 
 
+Abaixo estão listadas as telas que contém dados que você precisará configurar no seu projeto.
+
+------------------------------------------------
 Chaves de identificação
 
 ![Chaves de identificação](https://falandodeandroid.files.wordpress.com/2015/07/amazon_dashboard_identifier_keys1.jpg)
 
+------------------------------------------------
 Nome do projeto
 
 ![Nome do projeto](https://falandodeandroid.files.wordpress.com/2015/07/amazon_dashboard_config_21.jpg)
 
+------------------------------------------------
 Configurações do projeto
 
 ![Configurações do projeto](https://falandodeandroid.files.wordpress.com/2015/07/amazon_dashboard_config_11.jpg)
 
+------------------------------------------------
 
 Repare que os campos que você precisa configurar estão marcados com um circulo vermelho.
 
 
-### E o código?
+### Vamos ao código então
 A interface `AmazonABExperiment.java` define métodos que precisam ser implementados para a biblioteca capturar os dados que você configurou no console do serviço. Ela serve para simplificar a configuração dos dados necessários para a realização um teste A/B no serviço da Amazon. Veja:
 
 ```java
@@ -39,7 +45,7 @@ public interface AmazonABExperiment {
     String getPrivateKey();
 }
 ```
-A classe `ABBlogSubscriptionButtonExperiment` é um exemplo de implementação da interface `AmazonABExperiment`. É ela que disponibiliza todas as informações referentes ao seu teste A/B que está configurado no console da Amazon. Como explicado anteriormente, a proposta é simplificar a configuração dos dados de um teste A/B, centralizando tudo em um objeto configurador como abaixo:
+A classe `ABBlogSubscriptionButtonExperiment` é um exemplo de implementação da interface `AmazonABExperiment`. É ela que disponibiliza todas as informações referentes ao seu teste A/B. Como explicado anteriormente, a proposta é simplificar a configuração dos dados de um teste A/B, centralizando tudo em um objeto configurador como abaixo:
 
 ```java
 public class ABBlogSubscriptionButtonExperiment implements AmazonABExperiment {
@@ -83,6 +89,8 @@ public class ABBlogSubscriptionButtonExperiment implements AmazonABExperiment {
     }
 }
 ```
+Se preferir, você pode configurar a classe acima usando strings em um arquivo XML, por exemplo.
+
 
 Agora, o exemplo de uma Activity simples fazendo uso da Simple Amazon ABTest Library.
 Repare que o exemplo abaixo implementa a interface `OnExperimentVariationResult` que possui o método de callback `onVariationResult(String)`. É através desse método que é retornada a variação do teste A/B. Repare que a Activity de exemplo também usa a classe `AmazonABTestService`. Ela é o core da Simple Amazon ABTest Library e será apresentada logo mais abaixo. 
@@ -140,14 +148,10 @@ public class SubscriptionActivity extends AppCompatActivity implements OnExperim
 
 Por último, a principal classe da Simple Amazon ABTest Library. A `AmazonABTestService` recebe a implementação da `AmazonABExperiment` no construtor e disponibiliza métodos para execução das mesmas ações da biblioteca original da Amazon.
 
-
-
 ## Limitações atuais
+Essa primeira versão da Simple Amazon ABTest Library só possui a opção de retornar uma `String` no `OnExperimentVariationResult.onVariationResult(String)`, diferentemente da biblioteca oiginal, que possui vários tipos de retorno possíveis como `int`, `long` e `boolean`, por exemplo.
 
-
-## Roadmap
-
-
+Essa evolução está no roadmap da bilbioteca.
 
 License
 --------
