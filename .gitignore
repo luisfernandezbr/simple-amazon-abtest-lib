@@ -1,5 +1,5 @@
 # Built application files
-*.apk
+#*.apk
 *.ap_
 
 # Files for the Dalvik VM
@@ -27,3 +27,6 @@ proguard/
 *.log
 library.iml
 sample.iml
+vcs.xml
+.idea
+simple-amazon-abtest-lib.iml
