@@ -3,7 +3,7 @@
 ## O que é a Simple Amazon ABTest Library?
 
 A Simple Amazon ABTest Library é uma biblioteca Android que tem como objetivo simplificar o uso do serviço [Amazon A/B Testing][amazon-ab-testing] e de sua biblioteca para Android.
-A idéia surgiu quando tive algumas dificuldades ao tentar integrar um aplicativo Android com o serviço da Amazon, já que o [tutorial][amazon-ab-testing-doc] e o painel de configuração oficiais do serviço são bem extensos e um pouco complicados.
+A idéia surgiu quando tive dificuldades ao tentar integrar um aplicativo Android com o serviço da Amazon, já que o [tutorial][amazon-ab-testing-doc] e o painel de configuração oficiais do serviço são bem extensos e um pouco complicados.
 
 ## Como integrar?
 Para integrar seu aplicativo com o Amazon A/B Testing você precisa ter uma conta Amazon e se cadastrar no Developer Console.
@@ -32,7 +32,7 @@ Configurações do projeto
 Repare que os campos que você precisa configurar estão marcados com um circulo vermelho.
 
 
-### Vamos ao código então
+### O código
 A interface `AmazonABExperiment.java` define métodos que precisam ser implementados para a biblioteca capturar os dados que você configurou no console do serviço. Ela serve para simplificar a configuração dos dados necessários para a realização um teste A/B no serviço da Amazon. Veja:
 
 ```java
@@ -148,6 +148,9 @@ public class SubscriptionActivity extends AppCompatActivity implements OnExperim
 
 Por último, a principal classe da Simple Amazon ABTest Library. A `AmazonABTestService` recebe a implementação da `AmazonABExperiment` no construtor e disponibiliza métodos para execução das mesmas ações da biblioteca original da Amazon.
 
+O projeto de exemplo está detalhado no post sobre a biblioteca no meu blog, assim como algumas dicas sobre testes A/B.
+
+
 ## Limitações atuais
 Essa primeira versão da Simple Amazon ABTest Library só possui a opção de retornar uma `String` no `OnExperimentVariationResult.onVariationResult(String)`, diferentemente da biblioteca oiginal, que possui vários tipos de retorno possíveis como `int`, `long` e `boolean`, por exemplo.
 
@@ -172,3 +175,4 @@ License
     
 [amazon-ab-testing]: https://developer.amazon.com/appsandservices/apis/manage/ab-testing
 [amazon-ab-testing-doc]: https://developer.amazon.com/public/apis/manage/ab-testing/doc/a-b-testing-for-android-fire-os
+[blog]: https://falandodeandroid.wordpress.com/2015/07/29/testes-ab-no-android-usando-o-amazon-ab-testing-beta/
